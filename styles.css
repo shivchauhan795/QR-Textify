@@ -12,11 +12,11 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(226, 249, 249);
-    gap: 0px;
+    gap: 30px;
     /* overflow-x: auto; */
 }
 .outerBox{
-    width: 350px;
+    width: auto;
     height: auto;
     background-color: rgb(155, 152, 233);
     border-radius: 20px;
@@ -28,7 +28,7 @@
     align-items: center;
     padding-top: 30px;
     gap: 20px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 #qrText{
     width: 75%;
@@ -41,18 +41,19 @@
 }
 .buttons{
     width: 70%;
-    height: 7%;
+    height: 20%;
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
     align-items: center;
 }
 #generateButton{
-    width: 40%;
+    width: auto;
     height: 100%;
     border-radius: 5px;
     background-color: rgb(182, 245, 245);
     box-shadow: 0px 0px 10px black;
+    
 }
 #downloadButton{
     width: 40%;
@@ -148,7 +149,7 @@
 .margin input{
     width: 60%;
 }
-@media (max-width: 380px){
+@media (max-width: 710px){
     .container{
         /* width: fit-content; */
         /* height: fit-content; */
