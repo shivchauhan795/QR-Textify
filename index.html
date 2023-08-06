@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="outerBox">
+            <input type="text" id="qrText" placeholder="Enter Text....">         
+            <div class="buttons">
+                <input type="button" onclick="generateQR()" value="Generate" id="generateButton">
+                
+            </div> 
+            
+            <div id="imgBox">
+                <img src="" alt="" id="qrImg">
+            </div>
+
+            <div class="buttons">
+                <input type="button" value="Download" id="downloadButton">
+            </div>
+
+        </div>
+        <div class="extra">
+            <div class="qrColor">
+                <label for="selectColor">Select QR Code Color:</label>
+                <input type="color" name="selectColor" id="selectColor" value="#000000">
+            </div>
+            <div class="qrBgColor">
+                <label for="selectBgColor">Select QR Code Background Color:</label>
+                <input type="color" name="selectBgColor" id="selectBgColor" value="#ffffff">
+            </div>
+            <div class="margin">
+                <label for="myRange">Margin:</label>
+                <input type="range" min="0" max="30" value="2" class="margin" id="myRange">
+              </div>
+        </div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>

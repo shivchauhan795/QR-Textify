@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: auto;
+    min-width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(226, 249, 249);
+    gap: 0px;
+    /* overflow-x: auto; */
+}
+.outerBox{
+    width: 350px;
+    height: auto;
+    background-color: rgb(155, 152, 233);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+#qrText{
+    width: 75%;
+    height: 25px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: azure;
+    box-shadow: 1px 1px 15px black;
+}
+.buttons{
+    width: 70%;
+    height: 7%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#generateButton{
+    width: 40%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgb(182, 245, 245);
+    box-shadow: 0px 0px 10px black;
+}
+#downloadButton{
+    width: 40%;
+    /* height: 100%; */
+    max-height: 0;
+    border-radius: 5px;
+    visibility: hidden;
+    background-color: aqua;
+    box-shadow: 0px 0px 10px black;
+}
+#downloadButton.show-button{
+    visibility: visible;
+    max-height: 100%;
+}
+#imgBox{
+    width: 150px;
+    border-radius: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s;
+}
+#imgBox img{
+    width: 100%;
+    padding: 5px;
+    border: 0px;
+    border-radius: 5px;
+}
+#imgBox.show-img{
+    max-height: 300px;
+    border: 1px dashed black;
+    margin: 10px auto;
+}
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake {
+    0%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.extra{
+    width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.qrColor{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.qrColor label{
+    font-size: x-large;
+    text-shadow: 0px 0px 5px rgba(39, 38, 38, 0.812);
+}
+.qrBgColor{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.qrBgColor label{
+    font-size: x-large;
+    text-shadow: 0px 0px 5px rgba(39, 38, 38, 0.812);
+}
+.margin{
+    width: 100%; /*Width of the outside container*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.margin label{
+    font-size: x-large;
+    text-shadow: 0px 0px 5px rgba(39, 38, 38, 0.812);
+}
+.margin input{
+    width: 60%;
+}
+@media (max-width: 380px){
+    .container{
+        /* width: fit-content; */
+        /* height: fit-content; */
+        flex-direction: column;
+    }
+    .outerBox{
+        width: 100%;
+    }
+    .extra{
+        width: 100%;
+    }
+}
