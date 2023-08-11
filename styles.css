@@ -13,7 +13,7 @@
     align-items: center;
     background-color: rgb(226, 249, 249);
     gap: 30px;
-    /* overflow-x: auto; */
+    overflow-x: auto;
 }
 .outerBox{
     width: auto;
