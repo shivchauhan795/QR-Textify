@@ -1,45 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code</title>
+    <title>QR Textify</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="A Tool that converts text into a customizable QR Code">
+    <meta name="keywords"
+        content="qr, qrtextify, QR Textify, QRTextify, Qrtextify, QR Textify shiv chauhan, QR Textify github, shiv chauhan, qr code generator, QR generator, QR Code Generator">
+    <meta name="author" content="Shiv Chauhan">
+    <meta name="copyright" content="Copyright © 2023 QR Textify All Rights Reserved.">
 </head>
+
 <body>
-    <div class="container">
-        <div class="outerBox">
-            <input type="text" id="qrText" placeholder="Enter Text....">         
-            <div class="buttons">
-                <input type="button" onclick="generateQR()" value="Generate" id="generateButton">
+
+    <header>
+        <div class="navContainer">
+            QR Textify
+        </div>
+    </header>
+
+
+    <main>
+
+        <div class="container">
+            <div class="outerBox">
+                <input type="text" id="qrText" placeholder="Enter Text or Link ....">
+
+                <div class="shortURL">
+                    <input type="checkbox" name="shortURL" id="shortURL">
+                    <label for="shortURL">Shorten URL (Optional)</label>
+                </div>
+
+                <div class="buttons">
+                    <input type="button" onclick="generateQR()" value="Generate" id="generateButton">
+
+                </div>
+
+                <span id="shortURLGenerated"></span>
                 
-            </div> 
-            
-            <div id="imgBox">
-                <img src="" alt="" id="qrImg">
-            </div>
+                <div id="imgBox">
+                    <img src="" alt="" id="qrImg">
+                </div>
 
-            <div class="buttons">
-                <input type="button" value="Download" id="downloadButton">
-            </div>
+                <input type="text" id="qrCodeName" placeholder="Name your QR....">
 
-        </div>
-        <div class="extra">
-            <div class="qrColor">
-                <label for="selectColor">Select QR Code Color:</label>
-                <input type="color" name="selectColor" id="selectColor" value="#000000">
+                <div class="downloadFormat" id="downloadFormat">
+                    <input type="radio" name="format" id="png" value="png">
+                    <label for="png">PNG</label>
+                    <input type="radio" name="format" id="jpg" value="jpg">
+                    <label for="jpg">JPG</label>
+                    <input type="radio" name="format" id="svg" value="svg">
+                    <label for="svg">SVG</label>
+                    <input type="radio" name="format" id="gif" value="gif">
+                    <label for="gif">GIF</label>
+                    <input type="radio" name="format" id="eps" value="eps">
+                    <label for="eps">EPS</label>
+                </div>
+
+                <div class="buttons">
+                    <input type="button" value="Download" id="downloadButton">
+                </div>
+
             </div>
-            <div class="qrBgColor">
-                <label for="selectBgColor">Select QR Code Background Color:</label>
-                <input type="color" name="selectBgColor" id="selectBgColor" value="#ffffff">
+            <div class="extra">
+                <div class="qrColor">
+                    <label for="selectColor">Select QR Code Color:</label>
+                    <input type="color" name="selectColor" id="selectColor" value="#000000">
+                </div>
+                <div class="qrBgColor">
+                    <label for="selectBgColor">Select QR Code Background Color:</label>
+                    <input type="color" name="selectBgColor" id="selectBgColor" value="#ffffff">
+                </div>
+                <div class="margin">
+                    <label for="myRange">Margin:</label>
+                    <input type="range" min="0" max="30" value="3" class="margin" id="myRange">
+                </div>
             </div>
-            <div class="margin">
-                <label for="myRange">Margin:</label>
-                <input type="range" min="0" max="30" value="2" class="margin" id="myRange">
-              </div>
         </div>
-    </div>
+
+    </main>
+
+
+    <footer>
+        <div class="footer_text">
+            Copyright © 2023 QR Textify All Rights Reserved.
+        </div>
+    </footer>
+
     <script src="logic.js"></script>
 </body>
+
 </html>
