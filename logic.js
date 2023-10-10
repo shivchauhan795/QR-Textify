@@ -20,6 +20,7 @@ function shortenURL() {
         .then(response => response.text())
         .then(shortURLGenerated => {
             shortURLValue.textContent = shortURLGenerated;
+            generateQR();
         })
         .catch(error => {
             console.error("Error:", error);
@@ -54,6 +55,13 @@ function generateQR() {
         downloadFormat.classList.add("show-format");
     }
     else {
+        // below 4 lines remove qr when text is cleared
+        imgBox.classList.remove("show-img");
+        downloadButton.classList.remove("show-button");
+        qrCodeName.classList.remove("show-text");
+        downloadFormat.classList.remove("show-format");
+
+        // below lines show vibration in textbox
         qrText.classList.add('error');
         setTimeout(() => {
             qrText.classList.remove('error');
@@ -69,12 +77,15 @@ margin.addEventListener("input", () => {
     generateQR();
 });
 
+// below line will automatically trigger generate button when input changed
+qrText.addEventListener("input", generateQR);
+
 // Download Button
 downloadButton.addEventListener('click', () => {
     let imgg = document.querySelector('#imgBox img');
     let qrCodeNameText = document.getElementById("qrCodeName");
     let selectedFormat = document.querySelector('input[name="format"]:checked');
-    if (qrText.value.length > 0 && qrCodeNameText.value.length > 0 && selectedFormat) {
+    if (qrText.value.length > 0 && selectedFormat) {
         let imgAtr = imgg.getAttribute('src');
         let format = selectedFormat.value;
         // Convert the image URL to a Blob object
@@ -84,10 +95,17 @@ downloadButton.addEventListener('click', () => {
                 // Create a new anchor element to trigger the download
                 let downloadLink = document.createElement('a');
                 downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = qrCodeNameText.value + '.' + format; // Set a default download filename
+                if (qrCodeNameText.value.length === 0) {
+                    downloadLink.download = "qr" + '.' + format;
+                }
+                else {
+                    downloadLink.download = qrCodeNameText.value + '.' + format;
+                }
 
                 // Trigger a click event on the anchor element to initiate the download
                 downloadLink.click();
+
+                window.location.reload();   // reload the page to its default
             });
     } else {
         if (qrText.value.length === 0) {
@@ -96,12 +114,12 @@ downloadButton.addEventListener('click', () => {
                 qrText.classList.remove('error');
             }, 1000);
         }
-        if (qrCodeNameText.value.length === 0) {
-            qrCodeNameText.classList.add('error');
-            setTimeout(() => {
-                qrCodeNameText.classList.remove('error');
-            }, 1000);
-        }
+        // if (qrCodeNameText.value.length === 0) {
+        //     qrCodeNameText.classList.add('error');
+        //     setTimeout(() => {
+        //         qrCodeNameText.classList.remove('error');
+        //     }, 1000);
+        // }
         if (!selectedFormat) {
             downloadFormat.classList.add('error');
             setTimeout(() => {
